@@ -1,38 +1,30 @@
-class Node
-{
-  //Testing atom ide again
-    int data;
-    Node left, right;
+public class LCA {
 
-    public Node(int item)
-    {
-        data = item;
-        left = right = null;
-    }
+	Digraph graph;
+
+	public LCA(Digraph g){
+		this.graph = g;
+	}
+
+	public boolean hasCycle(){
+		DirectedCycle testDAG = new DirectedCycle(graph);
+		return testDAG.hasCycle();
+	}
+
+	public int lowestCommonAncestor(int a, int b){
+		if(hasCycle()){
+			return -1;
+		}else if(graph.V()==0){
+			return -1;
+		}else{
+			return 0;
+			//Some form of augmented DFS alogrithm
+		}
+	}
+
+	public static void main(String[]rgs){
+		Digraph v = new Digraph(2);
+		v.addEdge(0, 1);
+	}
+
 }
-public class BinaryTree
-{
-    Node root;
-
-    Node findLCA(int n1, int n2)
-    {
-        return findLCA(root, n1, n2);
-    }
-
-
-    Node findLCA(Node node, int n1, int n2)
-    {
-        if (node == null)
-            return null;
-
-                if (node.data == n1 || node.data == n2)
-            return node;
-
-        Node left_lca = findLCA(node.left, n1, n2);
-        Node right_lca = findLCA(node.right, n1, n2);
-
-        if (left_lca!=null && right_lca!=null)
-            return node;
-
-        return (left_lca != null) ? left_lca : right_lca;
-    }
