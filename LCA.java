@@ -21,10 +21,4 @@ public class LCA {
 			//Some form of augmented DFS alogrithm
 		}
 	}
-
-	public static void main(String[]rgs){
-		Digraph v = new Digraph(2);
-		v.addEdge(0, 1);
-	}
-
 }
