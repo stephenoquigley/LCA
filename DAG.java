@@ -1,19 +1,16 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-//import java.util.Queue;
 
 public class DAG
 {
-	private int V;           // number of vertices in this digraph
-	private int E;                 // number of edges in this digraph
-	private ArrayList<Integer>[] adj;    // adj[v] = adjacency list for vertex v
-	private int[] indegree;        // indegree[v] = indegree of vertex v
-	private boolean marked[];		//Boolean List to track visited vertices
-	private boolean hasCycle;		//True if cycle in graph
-    private boolean stack[];		//Order that vertices were visited
-    //private int[] edgeTo;      // edgeTo[v] = last edge on shortest s->v path
-    //private int[] distTo;      // distTo[v] = length of shortest s->v path
+	private int V;           							// number of vertices in this digraph
+	private int E;                				// number of edges in this digraph
+	private ArrayList<Integer>[] adj;    	// adj[v] = adjacency list for vertex v
+	private int[] indegree;        				// indegree[v] = indegree of vertex v
+	private boolean marked[];							//Boolean List to track visited vertices
+	private boolean hasCycle;							//True if cycle in graph
+  private boolean stack[];							//Order that vertices were visited
 
 	public DAG(int V)
 	{
@@ -68,27 +65,6 @@ public class DAG
         	}
 	}
 
-	//Returns amount of directed edges incident to vertex v
-//	public int indegree(int v) {
-//		if(validateVertex(v)<0){
-//			return -1;
-//		}
-//		else{
-//			return indegree[v];
-//		}
-//	}
-
-	//Returns amount of directed edges from vertex v
-//	public int outdegree(int v) {
-//		if(validateVertex(v)<0){
-//			return -1;
-//		}
-//		else{
-//			return adj[v].size();
-//		}
-//    }
-
-
 	//Returns the adjacent vertices to v
 	public Iterable<Integer> adj(int v)
 	{
@@ -136,6 +112,7 @@ public class DAG
 			return -1;
 		}
 	}
+
 	//to find the LCA, will have to traverse the graph backwards as the lca comes before the two nodes
     public DAG reverse()
     {
@@ -150,7 +127,7 @@ public class DAG
         return reverse;
     }
 
-	public ArrayList<Integer> BFS(int s)
+		public ArrayList<Integer> BFS(int s)
     {
         // Mark all the vertices as not visited(By default set as false)
         boolean visited[] = new boolean[V];
